@@ -16,10 +16,12 @@ KEY = "VALUE"
 - `CF_USER`: `Cloudflare` 用户 `ID`
 - `CF_API_KEY`: `Cloudflare AI` 的 `API` 密钥
 - `HF_API_KEY`: `Hugging Face` 的 `API` 密钥
+- `WEATHER_API_KEY`: 和风天气的 `API` 密钥
 
 ## API 文档
 | 分类 | 功能 | 路径 | 方法 | 查询参数 | 请求体 | 返回值 |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 赛博画师小叶子 | 获取模型列表 | `/painter/models` | `GET` | - | - | `application/json` |
-| 赛博画师小叶子 | 生成图片 | `/painter/generate` | `GET` | `prompt`: 提示词<br>`model`: 模型名称 | - | `image/png` |
+| `PainterLeaf` | 获取模型列表 | `/painter/models` | `GET` | - | - | `application/json` |
+| `PainterLeaf` | 生成图片 | `/painter/generate` | `GET` | `prompt`: 提示词<br>`model`: 模型名称 | - | `image/png` |
+| `MyHomepage` | 代理和风天气 | `/weather` | `GET` | - | - | `application/json` |
 
