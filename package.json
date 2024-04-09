@@ -1,0 +1,16 @@
+{
+  "name": "api-of-xiaoyezi",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "loi": "wrangler login",
+    "dep": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  },
+  "dependencies": {
+    "hono": "^4.2.2"
+  }
+}
