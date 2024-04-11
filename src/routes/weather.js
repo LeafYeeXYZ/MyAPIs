@@ -10,7 +10,6 @@ export async function weather(c) {
     return new Response(JSON.stringify(data), {
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': `${c.env.CLIENT}`,
       }
     })
   } catch (e) {

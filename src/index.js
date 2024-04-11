@@ -1,6 +1,9 @@
 // 引入 Hono
 import { Hono } from 'hono'
+import { cors } from 'hono/cors'
 const app = new Hono()
+// CORS
+app.use('*', cors())
 
 // 赛博画师小叶子: 获取模型列表
 import { painter_models } from './routes/painter_models.js'

@@ -18,7 +18,6 @@ export async function painter_translate(c) {
       return new Response(JSON.stringify(result), {
         headers: {
           'content-type': 'application/json',
-          'Access-Control-Allow-Origin': `${c.env.CLIENT}`,
         }
       })
     } else {

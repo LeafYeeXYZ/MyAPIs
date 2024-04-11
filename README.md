@@ -12,7 +12,6 @@ KEY = "VALUE"
 ```
 
 ## 环境变量
-- `CLIENT`: `CORS` 配置, 无特殊需要设置为 `*` 即可
 - `CF_USER`: `Cloudflare` 用户 `ID`
 - `CF_API_KEY`: `Cloudflare AI` 的 `API` 密钥
 - `HF_API_KEY`: `Hugging Face` 的 `API` 密钥

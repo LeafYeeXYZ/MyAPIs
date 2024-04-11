@@ -18,7 +18,6 @@ export function painter_models(c) {
   return new Response(JSON.stringify(MODELS), {
     headers: {
       'content-type': 'application/json',
-      'Access-Control-Allow-Origin': `${c.env.CLIENT}`,
     }
   })
 }

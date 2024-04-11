@@ -58,7 +58,6 @@ export async function painter_generate(c) {
     return new Response(response.body, {
       headers: {
         'content-type': 'image/png',
-        'Access-Control-Allow-Origin': `${c.env.CLIENT}`,
       }
     })
   } catch (e) {
