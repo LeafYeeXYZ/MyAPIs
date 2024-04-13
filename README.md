@@ -1,5 +1,11 @@
-# 介绍
-我的自用 `API` 仓库, 如您需要修改使用, 请手动创建 `wrangler.toml` 文件, 并添加以下内容:
+**[中文](README_ZH.md) | English**
+
+# Introduction
+My personal `API` repository
+
+## Usage
+### Configure Environment Variables
+Please `Fork` this repository, manually create the `wrangler.toml` file, and add the following content:
 
 ```toml
 name = "api"
@@ -8,20 +14,32 @@ compatibility_date = "2024-04-05"
 
 [vars]
 KEY = "VALUE"
-# 见环境变量
+# See Environment Variables
 ```
 
-## 环境变量
-- `CF_USER`: `Cloudflare` 用户 `ID`
-- `CF_API_KEY`: `Cloudflare AI` 的 `API` 密钥
-- `HF_API_KEY`: `Hugging Face` 的 `API` 密钥
-- `WEATHER_API_KEY`: 和风天气的 `API` 密钥
+### Environment Variables
+- `CF_USER`: `Cloudflare` user `ID`
+- `CF_API_KEY`: `Cloudflare AI` `API` key
+- `HF_API_KEY`: `Hugging Face` `API` key
+- `WEATHER_API_KEY`: [`qWeather`](https://dev.qweather.com/docs/api) `API` key
 
-## API 文档
-| 分类 | 功能 | 路径 | 方法 | 查询参数 | 请求体 | 返回值 |
+> If you don't need to use a certain feature, it's okay not to set the corresponding environment variable.
+
+### Deployment
+```bash
+# Install dependencies
+npm i -g pnpm
+pnpm i
+# Login to Cloudflare
+pnpm loi
+# Deploy
+pnpm dep
+```
+
+## API Reference
+| Category | Function | Path | Method | Query Parameters | Request Body | Response |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| `PainterLeaf` | 获取模型列表 | `/painter/models` | `GET` | - | - | `application/json` |
-| `PainterLeaf` | 生成图片 | `/painter/generate` | `GET` | `prompt`: 提示词<br>`model`: 模型名称 | - | `image/png` |
-| `MyHomepage` | 代理和风天气 | `/weather` | `GET` | - | - | `application/json` |
-| `PainterLeaf` | 提示词翻译 | `/painter/translate` | `POST` | `text`: 文本<br>`source_lang`: 源语言<br>`target_lang`: 目标语言 | - | `application/json` |
-
+| `PainterLeaf` | Get model list | `/painter/models` | `GET` | - | - | `application/json` |
+| `PainterLeaf` | Generate image | `/painter/generate` | `GET` | `prompt`: prompt words<br>`model`: model name | - | `image/png` |
+| `PainterLeaf` | Translate prompt words | `/painter/translate` | `POST` | `text`: text<br>`source_lang`: source language<br>`target_lang`: target language | - | `application/json` |
+| `MyHomepage` | qWeather (Beijing) | `/weather` | `GET` | - | - | `application/json` |
