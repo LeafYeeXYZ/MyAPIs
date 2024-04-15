@@ -41,6 +41,6 @@ pnpm dep
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | `PainterLeaf` | 获取模型列表 | `/painter/models` | `GET` | - | - | `application/json` |
 | `PainterLeaf` | 生成图片 | `/painter/generate` | `GET` | `prompt`: 提示词<br>`model`: 模型名称 | - | `image/png` |
-| `PainterLeaf` | 提示词翻译 | `/painter/translate` | `POST` | `text`: 文本<br>`source_lang`: 源语言<br>`target_lang`: 目标语言 | - | `application/json` |
+| `PainterLeaf` | 提示词翻译 | `/painter/translate` | `POST` | - | `text`: 文本<br>`source_lang`: 源语言<br>`target_lang`: 目标语言 | `application/json` |
 | `MyHomepage` | 和风天气 (北京) | `/weather` | `GET` | - | - | `application/json` |
 

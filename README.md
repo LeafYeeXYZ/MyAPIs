@@ -41,5 +41,5 @@ pnpm dep
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | `PainterLeaf` | Get model list | `/painter/models` | `GET` | - | - | `application/json` |
 | `PainterLeaf` | Generate image | `/painter/generate` | `GET` | `prompt`: prompt words<br>`model`: model name | - | `image/png` |
-| `PainterLeaf` | Translate prompt words | `/painter/translate` | `POST` | `text`: text<br>`source_lang`: source language<br>`target_lang`: target language | - | `application/json` |
+| `PainterLeaf` | Translate prompt words | `/painter/translate` | `POST` | - | `text`: text<br>`source_lang`: source language<br>`target_lang`: target language | `application/json` |
 | `MyHomepage` | qWeather (Beijing) | `/weather` | `GET` | - | - | `application/json` |
