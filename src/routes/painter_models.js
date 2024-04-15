@@ -5,8 +5,7 @@ const MODELS = {
   "@cf/bytedance/stable-diffusion-xl-lightning": "☁️ StableDiffusion XL Lightning",
   "@hf/stabilityai/stable-diffusion-2-1": "🤗 StableDiffusion 2.1",
   "@hf/cagliostrolab/animagine-xl-3.1": "🤗 Animagine XL 3.1",
-  "@hf/IDEA-CCNL/Taiyi-Stable-Diffusion-1B-Anime-Chinese-v0.1": "🤗 太一 StableDiffusion 1B 0.1",
-  "@hf/MysteriousAI/NSFW-gen": "🤗 NSFW-gen MysteriousAI"
+  "@hf/MysteriousAI/NSFW-gen": "🤗 MysteriousAI NSFW"
 }
 
 /**
