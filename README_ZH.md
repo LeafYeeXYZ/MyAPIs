@@ -19,7 +19,7 @@ KEY = "VALUE"
 
 ### 环境变量
 - `CF_USER`: `Cloudflare` 用户 `ID`
-- `CF_API_KEY`: `Cloudflare AI` 的 `API` 密钥
+- `CF_AI_API_KEY`: `Cloudflare AI` 的 `API` 密钥
 - `HF_API_KEY`: `Hugging Face` 的 `API` 密钥
 - `WEATHER_API_KEY`: 和风天气的 `API` 密钥
 

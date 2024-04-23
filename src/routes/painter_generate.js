@@ -20,7 +20,7 @@ class PainterRequest {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
-          'Authorization': `Bearer ${env.CF_API_KEY}`
+          'Authorization': `Bearer ${env.CF_AI_API_KEY}`
         },
         body: JSON.stringify({ prompt })
       }

@@ -18,10 +18,10 @@ KEY = "VALUE"
 ```
 
 ### Environment Variables
-- `CF_USER`: `Cloudflare` user `ID`
-- `CF_API_KEY`: `Cloudflare AI` `API` key
-- `HF_API_KEY`: `Hugging Face` `API` key
-- `WEATHER_API_KEY`: [`qWeather`](https://dev.qweather.com/docs/api) `API` key
+- `CF_USER`: `Cloudflare` user `ID`, for `PainterLeaf`
+- `CF_AI_API_KEY`: `Cloudflare AI` `API` key, for `PainterLeaf`
+- `HF_API_KEY`: `Hugging Face` `API` key, for `PainterLeaf`
+- `WEATHER_API_KEY`: [`qWeather`](https://dev.qweather.com/docs/api) `API` key, for `MyHomepage`
 
 > If you don't need to use a certain feature, it's okay not to set the corresponding environment variable.
 

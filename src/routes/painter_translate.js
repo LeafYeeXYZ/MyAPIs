@@ -8,7 +8,7 @@ export async function painter_translate(c) {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'Authorization': `Bearer ${c.env.CF_API_KEY}`
+        'Authorization': `Bearer ${c.env.CF_AI_API_KEY}`
       },
       body: JSON.stringify(body)
     })
