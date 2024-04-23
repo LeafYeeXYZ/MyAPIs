@@ -1,3 +1,10 @@
+import { Context } from 'hono'
+
+/**
+ * 翻译
+ * @param {Context} c 上下文对象
+ * @returns {Response} 返回翻译结果
+ */
 export async function painter_translate(c) {
   try {
     // 请求参数

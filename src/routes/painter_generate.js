@@ -1,3 +1,5 @@
+import { Context } from 'hono'
+
 /** 生成请求地址和请求选项 */
 class PainterRequest {
   /** 判断 Cloudflare AI 的正则 */
