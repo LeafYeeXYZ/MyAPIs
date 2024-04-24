@@ -17,6 +17,9 @@ app.get('/weather', weather)
 // 赛博画师小叶子: 中译英
 import { painter_translate } from './routes/painter_translate.js'
 app.post('/painter/translate', painter_translate)
+// 咨询师小叶子: 生成对话消息
+import { counselor_chat } from './routes/counselor_chat.js'
+app.post('/counselor/chat', counselor_chat)
 
 // 404
 app.all('*', () => new Response('请求路径错误 / Not Found', { status: 404 }))

@@ -18,8 +18,8 @@ KEY = "VALUE"
 ```
 
 ### Environment Variables
-- `CF_USER`: `Cloudflare` user `ID`, for `PainterLeaf`
-- `CF_AI_API_KEY`: `Cloudflare AI` `API` key, for `PainterLeaf`
+- `CF_USER`: `Cloudflare` user `ID`, for `PainterLeaf` and `CounselorLeaf`
+- `CF_AI_API_KEY`: `Cloudflare AI` `API` key, for `PainterLeaf` and `CounselorLeaf`
 - `HF_API_KEY`: `Hugging Face` `API` key, for `PainterLeaf`
 - `WEATHER_API_KEY`: [`qWeather`](https://dev.qweather.com/docs/api) `API` key, for `MyHomepage`
 
@@ -43,3 +43,4 @@ pnpm dep
 | `PainterLeaf` | Generate image | `/painter/generate` | `GET` | `prompt`: prompt words<br>`model`: model name | - | `image/png` |
 | `PainterLeaf` | Translate prompt words | `/painter/translate` | `POST` | - | `text`: text<br>`source_lang`: source language<br>`target_lang`: target language | `application/json` |
 | `MyHomepage` | qWeather (Beijing) | `/weather` | `GET` | - | - | `application/json` |
+| `CounselorLeaf` | Chat | `/counselor/chat` | `POST` | - | `messages`: message list, excluding system messages | `application/json` |

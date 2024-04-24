@@ -1,13 +1,17 @@
+// 系统提示语
+const SYS_PROMPT = '你是一个专业的心理咨询师, 名叫小叶子'
+
 /**
- * 翻译
- * @param {Context} c 上下文对象
- * @returns {Response} 返回翻译结果
+ * 生成对话消息
+ * @param {Context} c 上下文对象 
+ * @returns {Response} 返回对话消息或错误信息
  */
-export async function painter_translate(c) {
+export async function counselor_chat(c) {
   try {
     // 请求参数
-    const url = `https://api.cloudflare.com/client/v4/accounts/${c.env.CF_USER}/ai/run/@cf/meta/m2m100-1.2b`
+    const url = `https://api.cloudflare.com/client/v4/accounts/${c.env.CF_USER}/ai/run/@cf/qwen/qwen1.5-14b-chat-awq`
     const body = await c.req.json()
+    body.messages.unshift({ role: 'system', content: SYS_PROMPT })
     // 发送请求
     const response = await fetch(url, {
       method: 'POST',
@@ -15,7 +19,10 @@ export async function painter_translate(c) {
         'content-type': 'application/json',
         'Authorization': `Bearer ${c.env.CF_AI_API_KEY}`
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify({
+        max_tokens: 512,
+        messages: body.messages,
+      })
     })
     const result = await response.json()
     // 返回结果
@@ -26,7 +33,7 @@ export async function painter_translate(c) {
         }
       })
     } else {
-      return new Response('翻译失败', { status: 500 })
+      return new Response('请求失败', { status: 500 })
     }
   } catch(err) {
     return new Response(err.message, { status: 500 })

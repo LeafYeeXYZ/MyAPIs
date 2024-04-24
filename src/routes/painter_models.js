@@ -1,5 +1,3 @@
-import { Context } from 'hono'
-
 // 模型列表
 const MODELS = {
   "@cf/lykon/dreamshaper-8-lcm": "☁️ DreamShaper 8 LCM",

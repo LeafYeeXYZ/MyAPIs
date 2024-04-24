@@ -1,5 +1,3 @@
-import { Context } from 'hono'
-
 /** 
  * 和风天气的代理服务
  * @param {Context} c 上下文对象
