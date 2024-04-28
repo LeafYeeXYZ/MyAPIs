@@ -7,7 +7,7 @@ const MODELS = {
   "@hf/cagliostrolab/animagine-xl-3.1": "🤗 Animagine XL 3.1",
   "@hf/UnfilteredAI/NSFW-GEN-ANIME": "🤗 NSFW Gen Anime",
   "@hf/yehiaserag/anime-pencil-diffusion": "🤗 Anime Pencil Diffusion",
-  "@hf/DGSpitzer/Cyberpunk-Anime-Diffusion": "🤗 Cyberpunk Anime Diffusion",
+  "@hf/JosefJilek/loliDiffusion": "🤗 LoliDiffusion",
 }
 
 /**
