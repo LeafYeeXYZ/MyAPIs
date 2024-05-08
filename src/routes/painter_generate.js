@@ -33,7 +33,11 @@ class PainterRequest {
           'content-type': 'application/json',
           'Authorization': `Bearer ${env.HF_API_KEY}`
         },
-        body: JSON.stringify({ inputs: prompt })
+        body: JSON.stringify({ 
+          inputs: prompt, 
+          prompt: prompt,
+          negative_prompt: 'lowres, bad, text, error, missing, extra, fewer, cropped, jpeg artifacts, worst quality, bad quality, watermark, bad aesthetic, unfinished, chromatic aberration, scan, scan artifacts',
+        })
       }
     }
   }
