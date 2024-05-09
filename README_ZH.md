@@ -40,7 +40,7 @@ pnpm dep
 | 分类 | 功能 | 路径 | 方法 | 查询参数 | 请求体 | 返回值 |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | `PainterLeaf` | 获取模型列表 | `/painter/models` | `GET` | - | - | `application/json` |
-| `PainterLeaf` | 生成图片 | `/painter/generate` | `GET` | `prompt`: 提示词<br>`model`: 模型名称 | - | `image/png` |
+| `PainterLeaf` | 生成图片 | `/painter/generate` | `POST` | - | `prompt`: 提示词<br>`model`: 模型名称<br>如果图生图: `image: uint8Array` | `image/png` |
 | `PainterLeaf` | 提示词翻译 | `/painter/translate` | `POST` | - | `text`: 文本<br>`source_lang`: 源语言<br>`target_lang`: 目标语言 | `application/json` |
 | `MyHomepage` | 和风天气 (北京) | `/weather` | `GET` | - | - | `application/json` |
 | `CounselorLeaf` | 聊天 | `/counselor/chat` | `POST` | - | `messages`: 消息列表, 不含系统消息 | `application/json` |
