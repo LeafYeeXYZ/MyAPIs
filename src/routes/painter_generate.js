@@ -10,20 +10,14 @@ class PainterRequest {
    * 获取正确的请求链接和选项
    * @param {string} model 模型
    * @param {string} prompt 提示词
-   * @param {string} mode 模式
-   * @param {object} c 上下文对象
+   * @param {object} env 环境变量
+   * @param {number[]} image 图片
    * @returns {object} 请求地址和请求选项
    */
   constructor(model, prompt, env, image) {
     // 判断模型
     if (this.#cfReg.test(model)) {
       // Cloudflare
-      let data = {}
-      if (image) {
-        data = { prompt, image }
-      } else {
-        data = { prompt }
-      }
       this.url = `https://api.cloudflare.com/client/v4/accounts/${env.CF_USER}/ai/run/${model}`
       this.options = {
         method: 'POST',
@@ -31,7 +25,7 @@ class PainterRequest {
           'content-type': 'application/json',
           'Authorization': `Bearer ${env.CF_AI_API_KEY}`
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(image ? { image: image, prompt: prompt } : { prompt: prompt })
       }
     } else if (this.#hfReg.test(model)) {
       // Hugging Face
@@ -57,7 +51,7 @@ class PainterRequest {
 
 /**
  * 生成图片
- * @param {Context} c 上下文对象 
+ * @param {import('hono').Context} c 上下文对象 
  * @returns {Response} 返回图片或错误信息
  */
 export async function painter_generate(c) {
