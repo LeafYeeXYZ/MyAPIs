@@ -40,7 +40,8 @@ pnpm dep
 | Category | Function | Path | Method | Query Parameters | Request Body | Response |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | `PainterLeaf` | Get model list | `/painter/models` | `GET` | - | - | `application/json` |
-| `PainterLeaf` | Generate image | `/painter/generate` | `POST` | - | `prompt`: prompt words<br>`model`: model name<br>If img2img: `image: uint8Array` | `image/png` |
+| `PainterLeaf` | Generate image | `/painter/generate` | `POST` | - | `prompt`: prompt words<br>`model`: model name<br>If img2img: `image: Array.from(uint8Array)` | `image/png` |
 | `PainterLeaf` | Translate prompt words | `/painter/translate` | `POST` | - | `text`: text<br>`source_lang`: source language<br>`target_lang`: target language | `application/json` |
 | `MyHomepage` | qWeather (Beijing) | `/weather` | `GET` | - | - | `application/json` |
 | `CounselorLeaf` | Chat | `/counselor/chat` | `POST` | - | `messages`: message list, excluding system messages | `application/json` |
+| `PainterLeaf` | Generate text from image | `/painter/genprompt` | `POST` | - | `image: Array.from(uint8Array)` | `application/json` |

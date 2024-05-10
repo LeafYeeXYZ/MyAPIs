@@ -8,9 +8,9 @@
     "dev": "wrangler dev"
   },
   "devDependencies": {
-    "wrangler": "^3.52.0"
+    "wrangler": "^3.55.0"
   },
   "dependencies": {
-    "hono": "^4.2.8"
+    "hono": "^4.3.4"
   }
 }
