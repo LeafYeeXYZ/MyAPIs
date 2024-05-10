@@ -10,7 +10,7 @@ export async function painter_genprompt(c) {
     const req = await c.req.json()
     const body = {
       image: req.image,
-      max_tokens: 512,
+      max_tokens: 2048,
       prompt: 'Generate a detailed description in a single paragraph for this image',
     }
     // 发送请求

@@ -20,7 +20,7 @@ export async function counselor_chat(c) {
         'Authorization': `Bearer ${c.env.CF_AI_API_KEY}`
       },
       body: JSON.stringify({
-        max_tokens: 512,
+        max_tokens: 1024,
         messages: body.messages,
       })
     })
