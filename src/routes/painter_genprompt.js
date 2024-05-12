@@ -24,15 +24,12 @@ export async function painter_genprompt(c) {
     })
     const result = await response.json()
     // 返回结果
-    if (result.success) {
-      return new Response(JSON.stringify(result), {
-        headers: {
-          'content-type': 'application/json',
-        }
-      })
-    } else {
-      return new Response('生成失败', { status: 500 })
-    }
+    return new Response(JSON.stringify(result), {
+      status: result.success ? 200 : 500,
+      headers: {
+        'content-type': 'application/json',
+      }
+    })
   } catch(err) {
     return new Response(err.message, { status: 500 })
   }
