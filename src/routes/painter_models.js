@@ -5,7 +5,6 @@ const MODELS = {
   "@hf/cagliostrolab/animagine-xl-3.1": { description: "🤗 AnimagineXL 3.1", type: "textToImage", lang: "SD 提示词" },
   "@hf/Koolchh/AnimeBoysXL-v3.0": { description: "🤗 AnimeBoysXL 3.0", type: "textToImage", lang: "SD 提示词" },
   "@hf/UnfilteredAI/NSFW-GEN-ANIME-v2": { description: "🤗 NSFWGenAnime", type: "textToImage", lang: "SD 提示词" },
-  "@hf/stabilityai/stable-diffusion-2-1": { description: "🤗 StableDiffusion 2.1", type: "textToImage", lang: "SD 提示词" },
   "@cf/stabilityai/stable-diffusion-xl-turbo": { description: "☁️ SDXL Turbo", type: "both", lang: "自然语言" },
   "@cf/runwayml/stable-diffusion-v1-5-img2img": { description: "☁️ StableDiffusion 1.5 Img2Img", type: "imageToImage", lang: "自然语言" },
 }

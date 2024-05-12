@@ -69,7 +69,7 @@ export async function painter_generate(c) {
     return new Response(response.body, {
       status: response.status,
       headers: {
-        'content-type': 'image/png',
+        'content-type': response.headers.get('content-type'),
       }
     })
   } catch (e) {
