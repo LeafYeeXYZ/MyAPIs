@@ -6,22 +6,22 @@ const app = new Hono()
 app.use('*', cors())
 
 // 赛博画师小叶子: 获取模型列表
-import { painter_models } from './routes/painter_models.js'
+import { painter_models } from './routes/painter_models'
 app.get('/painter/models', painter_models)
 // 赛博画师小叶子: 生成图片
-import { painter_generate } from './routes/painter_generate.js'
+import { painter_generate } from './routes/painter_generate'
 app.post('/painter/generate', painter_generate)
 // 浏览器新标签页: 和风天气
-import { weather } from './routes/weather.js'
+import { weather } from './routes/weather'
 app.get('/weather', weather)
 // 赛博画师小叶子: 中译英
-import { painter_translate } from './routes/painter_translate.js'
+import { painter_translate } from './routes/painter_translate'
 app.post('/painter/translate', painter_translate)
 // 咨询师小叶子: 生成对话消息
-import { counselor_chat } from './routes/counselor_chat.js'
+import { counselor_chat } from './routes/counselor_chat'
 app.post('/counselor/chat', counselor_chat)
 // 赛博画师小叶子: 图片生成提示词
-import { painter_genprompt } from './routes/painter_genprompt.js'
+import { painter_genprompt } from './routes/painter_genprompt'
 app.post('/painter/genprompt', painter_genprompt)
 
 // 404

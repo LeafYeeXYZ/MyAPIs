@@ -1,9 +1,6 @@
-/**
- * 图生文接口
- * @param {import('hono').Context} c 上下文对象
- * @returns {Response} 返回生成结果
- */
-export async function painter_genprompt(c) {
+import type { Context } from 'hono'
+
+export async function painter_genprompt(c: Context): Promise<Response> {
   try {
     // 请求参数
     const url = `https://api.cloudflare.com/client/v4/accounts/${c.env.CF_USER}/ai/run/@cf/unum/uform-gen2-qwen-500m`
@@ -30,7 +27,7 @@ export async function painter_genprompt(c) {
         'content-type': 'application/json',
       }
     })
-  } catch(err) {
-    return new Response(err.message, { status: 500 })
+  } catch(e) {
+    return new Response(e instanceof Error ? e.message : 'Unkown Server Error', { status: 500 })
   }
 }

@@ -1,20 +1,23 @@
-'use strict'
+import type { Context } from 'hono'
 
 /** 生成请求地址和请求选项 */
 class PainterRequest {
-  /** 判断 Cloudflare AI 的正则 */
   #cfReg = /^@cf\//
-  /** 判断 Hugging Face 的正则; \@hf/ 字段会在请求时被替换为空字符串 */
   #hfReg = /^@hf\//
-  /** 
-   * 获取正确的请求链接和选项
-   * @param {string} model 模型
-   * @param {string} prompt 提示词
-   * @param {object} env 环境变量
-   * @param {number[]} image 图片
-   * @returns {object} 请求地址和请求选项
-   */
-  constructor(model, prompt, env, image) {
+
+  url: string
+  options: {
+    method: string
+    headers: HeadersInit
+    body: string
+  }
+
+  constructor(
+    model: string,
+    prompt: string,
+    env: { [key: string]: string, CF_USER: string, CF_AI_API_KEY: string, HF_API_KEY: string },
+    image: number[] | undefined
+  ) {
     // 判断模型
     if (this.#cfReg.test(model)) {
       // Cloudflare
@@ -45,22 +48,19 @@ class PainterRequest {
           options: { wait_for_model: true }
         })
       }
+    } else {
+      throw new Error(`Unsupported model: ${model}`)
     }
   }
 }
 
-/**
- * 生成图片
- * @param {import('hono').Context} c 上下文对象 
- * @returns {Response} 返回图片或错误信息
- */
-export async function painter_generate(c) {
+export async function painter_generate(c: Context): Promise<Response> {
   try {
     // 图片
     const data = await c.req.json()
-    const image = data.image
-    const model = data.model
-    const prompt = data.prompt
+    const image = data.image as number[] | undefined
+    const model = data.model as string
+    const prompt = data.prompt as string
     // 请求参数和请求地址
     const { options, url } = new PainterRequest(model, prompt, c.env, image)
     // 发送请求
@@ -69,10 +69,10 @@ export async function painter_generate(c) {
     return new Response(response.body, {
       status: response.status,
       headers: {
-        'content-type': response.headers.get('content-type'),
+        'content-type': response.headers.get('content-type') ?? 'text/plain',
       }
     })
   } catch (e) {
-    return new Response(e.message, { status: 500 })
+    return new Response(e instanceof Error ? e.message : 'Unkown Server Error', { status: 500 })
   }
 }

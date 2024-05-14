@@ -9,7 +9,7 @@ Please `Fork` this repository, manually create the `wrangler.toml` file, and add
 
 ```toml
 name = "api"
-main = "src/index.js"
+main = "dist/index.js"
 compatibility_date = "2024-04-05"
 
 [vars]
