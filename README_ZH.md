@@ -15,6 +15,11 @@ compatibility_date = "2024-04-05"
 [vars]
 KEY = "VALUE"
 # 见环境变量
+
+# 仅用于统计访问量, 可不设置
+[[kv_namespaces]]
+binding = "count"
+id = "YOUR_KV_NAMESPACE_ID"
 ```
 
 ### 环境变量
@@ -45,4 +50,6 @@ pnpm dep
 | `MyHomepage` | 和风天气 (北京) | `/weather` | `GET` | - | - | `application/json` |
 | `CounselorLeaf` | 聊天 | `/counselor/chat` | `POST` | - | `messages`: 消息列表, 不含系统消息 | `application/json` |
 | `PainterLeaf` | 图片生成文字 | `/painter/genprompt` | `POST` | - | `image: Array.from(uint8Array)` | `application/json` |
+| `Others` | 访问量统计 | `/count` | `GET` | - | - | `text/javascript` |
+| `Others` | 访问量统计 | `/count` | `POST` | - | `hostname`: 域名<br>`unique`: 是否统计为独立访客 | `application/json` |
 

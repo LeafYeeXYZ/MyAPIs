@@ -15,6 +15,11 @@ compatibility_date = "2024-04-05"
 [vars]
 KEY = "VALUE"
 # See Environment Variables
+
+# Only used for counting visits, can be omitted
+[[kv_namespaces]]
+binding = "count"
+id = "YOUR_KV_NAMESPACE_ID"
 ```
 
 ### Environment Variables
@@ -45,3 +50,5 @@ pnpm dep
 | `MyHomepage` | qWeather (Beijing) | `/weather` | `GET` | - | - | `application/json` |
 | `CounselorLeaf` | Chat | `/counselor/chat` | `POST` | - | `messages`: message list, excluding system messages | `application/json` |
 | `PainterLeaf` | Generate text from image | `/painter/genprompt` | `POST` | - | `image: Array.from(uint8Array)` | `application/json` |
+| `Others` | Count visits | `/count` | `GET` | - | - | `text/javascript` |
+| `Others` | Count visits | `/count` | `POST` | - | `hostname`: domain name<br>`unique`: whether to count as unique visitors | `application/json` |
