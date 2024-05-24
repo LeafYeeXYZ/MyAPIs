@@ -28,7 +28,7 @@ export async function count_get(c: Context): Promise<Response> {
     `, 
     200,
     {
-      'Content-Type': 'text/javascript'
+      'Content-Type': 'application/javascript',
     }
   )
 }

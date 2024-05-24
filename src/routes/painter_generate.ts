@@ -45,7 +45,7 @@ class PainterRequest {
           prompt: prompt,
           negative_prompt: 'lowres, bad, text, error, missing, extra, fewer, cropped, jpeg artifacts, worst quality, bad quality, watermark, bad aesthetic, unfinished, chromatic aberration, scan, scan artifacts',
           // 等到模型可用
-          options: { wait_for_model: true }
+          // options: { wait_for_model: true }
         })
       }
     } else {
