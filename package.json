@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "loi": "wrangler login",
     "dep": "tsc && wrangler deploy",
     "dev": "tsc --watch && wrangler dev"
   },

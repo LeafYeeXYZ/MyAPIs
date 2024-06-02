@@ -33,12 +33,12 @@ id = "YOUR_KV_NAMESPACE_ID"
 ### 部署
 ```bash
 # 安装依赖
-npm i -g pnpm
-pnpm i
+npm i -g bun
+bun i
 # 登录 Cloudflare
-pnpm loi
+bunx wrangler login
 # 部署
-pnpm dep
+bun dep
 ```
 
 ## API 文档

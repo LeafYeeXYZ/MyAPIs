@@ -33,12 +33,12 @@ id = "YOUR_KV_NAMESPACE_ID"
 ### Deployment
 ```bash
 # Install dependencies
-npm i -g pnpm
-pnpm i
+npm i -g bun
+bun i
 # Login to Cloudflare
-pnpm loi
+bunx wrangler login
 # Deploy
-pnpm dep
+bun dep
 ```
 
 ## API Reference
