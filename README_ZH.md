@@ -52,4 +52,5 @@ bun dep
 | `PainterLeaf` | 图片生成文字 | `/painter/genprompt` | `POST` | - | `image: Array.from(uint8Array)` | `application/json` |
 | `Others` | 访问量统计 | `/count` | `GET` | - | - | `text/javascript` |
 | `Others` | 访问量统计 | `/count` | `POST` | - | `hostname`: 域名<br>`unique`: 是否统计为独立访客 | `application/json` |
+| `Others` | 显示 `README` | `/` | `GET` | - | - | `text/html` |
 

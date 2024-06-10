@@ -52,3 +52,4 @@ bun dep
 | `PainterLeaf` | Generate text from image | `/painter/genprompt` | `POST` | - | `image: Array.from(uint8Array)` | `application/json` |
 | `Others` | Count visits | `/count` | `GET` | - | - | `text/javascript` |
 | `Others` | Count visits | `/count` | `POST` | - | `hostname`: domain name<br>`unique`: whether to count as unique visitors | `application/json` |
+| `Others` | Show README | `/` | `GET` | - | - | `text/html` |

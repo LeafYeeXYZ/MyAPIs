@@ -28,6 +28,10 @@ import { count_get, count_post } from './routes/count'
 app.get('/count', count_get)
 app.post('/count', count_post)
 
+// 主页
+import { index } from './components/Page'
+app.get('/', index)
+
 // 404
 app.all('*', () => new Response('请求路径错误 / Not Found', { status: 404 }))
 

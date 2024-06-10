@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dep": "tsc && wrangler deploy",
-    "dev": "tsc --watch && wrangler dev"
+    "dep": "bun ./src/components/PageSetup.ts && tsc && wrangler deploy",
+    "dev": "tsc --watch && wrangler dev",
+    "setup": "bun ./src/components/PageSetup.ts"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240512.0",
@@ -12,6 +13,7 @@
     "wrangler": "^3.55.0"
   },
   "dependencies": {
-    "hono": "^4.3.4"
+    "hono": "^4.3.4",
+    "marked": "^12.0.2"
   }
 }
