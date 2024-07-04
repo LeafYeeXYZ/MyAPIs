@@ -86,7 +86,7 @@ bun dep
 <td align="center">和风天气 (北京)</td>
 <td align="center"><code>/weather</code></td>
 <td align="center"><code>GET</code></td>
-<td align="center">-</td>
+<td align="center"><code>location</code>: <code>经度,纬度</code></td>
 <td align="center">-</td>
 <td align="center"><code>application/json</code></td>
 </tr>
