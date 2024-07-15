@@ -20,6 +20,11 @@ KEY = "VALUE"
 [[kv_namespaces]]
 binding = "count"
 id = "YOUR_KV_NAMESPACE_ID"
+
+# Only used for FileBox, can be omitted
+[[r2_buckets]]
+binding = "filebox"
+bucket_name = "YOUR_BUCKET_NAME"
 ```
 
 ### Environment Variables
@@ -27,6 +32,8 @@ id = "YOUR_KV_NAMESPACE_ID"
 - `CF_AI_API_KEY`: `Cloudflare AI` `API` key, for `PainterLeaf` and `CounselorLeaf`
 - `HF_API_KEY`: `Hugging Face` `API` key, for `PainterLeaf`
 - `WEATHER_API_KEY`: [`qWeather`](https://dev.qweather.com/docs/api) `API` key, for `MyHomepage`
+- `FILEBOX_UPLOAD_PW`: FileBox upload password, for `FileBox`
+- `FILEBOX_DOWNLOAD_PW`: FileBox download password, for `FileBox`
 
 > If you don't need to use a certain feature, it's okay not to set the corresponding environment variable.
 
@@ -53,3 +60,5 @@ bun dep
 | `Others` | Count visits | `/count` | `GET` | - | - | `text/javascript` |
 | `Others` | Count visits | `/count` | `POST` | - | `hostname`: domain name<br>`unique`: whether to count as unique visitors | `application/json` |
 | `Others` | Show README | `/` | `GET` | - | - | `text/html` |
+| `FileBox` | Upload file | `/filebox/upload` | `Get->WebSocket` | - | `key: string`: file access code<br>`password: string`: upload password | `application/json` |
+| `FileBox` | Download file | `/filebox/download` | `Get->WebSocket` | - | `key: string`: file access code<br>`password: string`: download password<br>`delete: boolean`: whether to delete the file after downloading | `application/json` |

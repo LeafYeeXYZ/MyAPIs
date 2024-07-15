@@ -27,6 +27,12 @@ app.post('/painter/genprompt', painter_genprompt)
 import { count_get, count_post } from './routes/count'
 app.get('/count', count_get)
 app.post('/count', count_post)
+// 文件快递柜：上传文件
+import { filebox_upload } from './routes/filebox_upload'
+app.post('/filebox/upload', filebox_upload)
+// 文件快递柜：下载文件
+import { filebox_download } from './routes/filebox_download'
+app.post('/filebox/download', filebox_download)
 
 // 主页
 import { index } from './components/Page'

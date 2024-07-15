@@ -20,6 +20,11 @@ KEY = "VALUE"
 [[kv_namespaces]]
 binding = "count"
 id = "YOUR_KV_NAMESPACE_ID"
+
+# 仅用于文件快递柜, 可不设置
+[[r2_buckets]]
+binding = "filebox"
+bucket_name = "YOUR_BUCKET_NAME"
 ```
 
 ### 环境变量
@@ -27,6 +32,8 @@ id = "YOUR_KV_NAMESPACE_ID"
 - `CF_AI_API_KEY`: `Cloudflare AI` 的 `API` 密钥, 用于 `PainterLeaf` 和 `CounselorLeaf`
 - `HF_API_KEY`: `Hugging Face` 的 `API` 密钥, 用于 `PainterLeaf`
 - `WEATHER_API_KEY`: 和风天气的 `API` 密钥, 用于 `MyHomepage`
+- `FILEBOX_UPLOAD_PW`: 文件快递柜上传密码, 用于 `FileBox`
+- `FILEBOX_DOWNLOAD_PW`: 文件快递柜下载密码, 用于 `FileBox`
 
 > 如果您不需要使用某个功能, 可以不设置对应的环墇变量
 
@@ -53,4 +60,6 @@ bun dep
 | `Others` | 访问量统计 | `/count` | `GET` | - | - | `text/javascript` |
 | `Others` | 访问量统计 | `/count` | `POST` | - | `hostname`: 域名<br>`unique`: 是否统计为独立访客 | `application/json` |
 | `Others` | 显示 `README` | `/` | `GET` | - | - | `text/html` |
+| `FileBox` | 上传文件 | `/filebox/upload` | `Get->WebSocket` | - | `key: string`: 文件取件码<br>`password: string`: 上传密码 | `application/json` |
+| `FileBox` | 下载文件 | `/filebox/download` | `Get->WebSocket` | - | `key: string`: 文件取件码<br>`password: string`: 下载密码<br>`delete: boolean`: 是否下载后删除 | `application/json` |
 
