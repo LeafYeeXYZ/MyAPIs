@@ -60,5 +60,5 @@ bun dep
 | `Others` | Count visits | `/count` | `GET` | - | - | `text/javascript` |
 | `Others` | Count visits | `/count` | `POST` | - | `hostname`: domain name<br>`unique`: whether to count as unique visitors | `application/json` |
 | `Others` | Show README | `/` | `GET` | - | - | `text/html` |
-| `FileBox` | Upload file | `/filebox/upload/ws` | `Get->WebSocket` | - | `key: string`: file access code<br>`password: string`: upload password | `application/json` |
-| `FileBox` | Download file | `/filebox/download/ws` | `Get->WebSocket` | - | `key: string`: file access code<br>`password: string`: download password<br>`delete: boolean`: whether to delete the file after downloading | `application/json` |
+| `FileBox` | Upload file | `/filebox/upload/ws` | `Get->WebSocket` | - | - | - |
+| `FileBox` | Download file | `/filebox/download/ws` | `Get->WebSocket` | - | - | - |
