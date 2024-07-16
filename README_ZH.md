@@ -60,6 +60,6 @@ bun dep
 | `Others` | 访问量统计 | `/count` | `GET` | - | - | `text/javascript` |
 | `Others` | 访问量统计 | `/count` | `POST` | - | `hostname`: 域名<br>`unique`: 是否统计为独立访客 | `application/json` |
 | `Others` | 显示 `README` | `/` | `GET` | - | - | `text/html` |
-| `FileBox` | 上传文件 | `/filebox/upload` | `Get->WebSocket` | - | `key: string`: 文件取件码<br>`password: string`: 上传密码 | `application/json` |
-| `FileBox` | 下载文件 | `/filebox/download` | `Get->WebSocket` | - | `key: string`: 文件取件码<br>`password: string`: 下载密码<br>`delete: boolean`: 是否下载后删除 | `application/json` |
+| `FileBox` | 上传文件 | `/filebox/upload/ws` | `Get->WebSocket` | - | `key: string`: 文件取件码<br>`password: string`: 上传密码 | `application/json` |
+| `FileBox` | 下载文件 | `/filebox/download/ws` | `Get->WebSocket` | - | `key: string`: 文件取件码<br>`password: string`: 下载密码<br>`delete: boolean`: 是否下载后删除 | `application/json` |
 

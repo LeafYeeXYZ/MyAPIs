@@ -21,6 +21,11 @@ KEY = &quot;VALUE&quot;
 [[kv_namespaces]]
 binding = &quot;count&quot;
 id = &quot;YOUR_KV_NAMESPACE_ID&quot;
+
+# 仅用于文件快递柜, 可不设置
+[[r2_buckets]]
+binding = &quot;filebox&quot;
+bucket_name = &quot;YOUR_BUCKET_NAME&quot;
 </code></pre>
 <h3>环境变量</h3>
 <ul>
@@ -28,6 +33,8 @@ id = &quot;YOUR_KV_NAMESPACE_ID&quot;
 <li><code>CF_AI_API_KEY</code>: <code>Cloudflare AI</code> 的 <code>API</code> 密钥, 用于 <code>PainterLeaf</code> 和 <code>CounselorLeaf</code></li>
 <li><code>HF_API_KEY</code>: <code>Hugging Face</code> 的 <code>API</code> 密钥, 用于 <code>PainterLeaf</code></li>
 <li><code>WEATHER_API_KEY</code>: 和风天气的 <code>API</code> 密钥, 用于 <code>MyHomepage</code></li>
+<li><code>FILEBOX_UPLOAD_PW</code>: 文件快递柜上传密码, 用于 <code>FileBox</code></li>
+<li><code>FILEBOX_DOWNLOAD_PW</code>: 文件快递柜下载密码, 用于 <code>FileBox</code></li>
 </ul>
 <blockquote>
 <p>如果您不需要使用某个功能, 可以不设置对应的环墇变量</p>
@@ -134,6 +141,24 @@ bun dep
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center"><code>text/html</code></td>
+</tr>
+<tr>
+<td align="center"><code>FileBox</code></td>
+<td align="center">上传文件</td>
+<td align="center"><code>/filebox/upload/ws</code></td>
+<td align="center"><code>Get-&gt;WebSocket</code></td>
+<td align="center">-</td>
+<td align="center"><code>key: string</code>: 文件取件码<br><code>password: string</code>: 上传密码</td>
+<td align="center"><code>application/json</code></td>
+</tr>
+<tr>
+<td align="center"><code>FileBox</code></td>
+<td align="center">下载文件</td>
+<td align="center"><code>/filebox/download/ws</code></td>
+<td align="center"><code>Get-&gt;WebSocket</code></td>
+<td align="center">-</td>
+<td align="center"><code>key: string</code>: 文件取件码<br><code>password: string</code>: 下载密码<br><code>delete: boolean</code>: 是否下载后删除</td>
+<td align="center"><code>application/json</code></td>
 </tr>
 </tbody></table>
 
