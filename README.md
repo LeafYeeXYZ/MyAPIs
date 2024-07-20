@@ -34,6 +34,7 @@ bucket_name = "YOUR_BUCKET_NAME"
 - `WEATHER_API_KEY`: [`qWeather`](https://dev.qweather.com/docs/api) `API` key, for `MyHomepage`
 - `FILEBOX_UPLOAD_PW`: FileBox upload password, for `FileBox`
 - `FILEBOX_DOWNLOAD_PW`: FileBox download password, for `FileBox`
+- `FILE0_SECRET_KEY`: `File0` secret key, for `FileBox`
 
 > If you don't need to use a certain feature, it's okay not to set the corresponding environment variable.
 
@@ -62,3 +63,4 @@ bun dep
 | `Others` | Show README | `/` | `GET` | - | - | `text/html` |
 | `FileBox` | Upload file | `/filebox/upload/ws` | `Get->WebSocket` | - | - | - |
 | `FileBox` | Download file | `/filebox/download/ws` | `Get->WebSocket` | - | - | - |
+| `FileBox` | Get `File0` `Token` | `/filebox/file0` | `POST` | - | `type: 'upload' \| 'download'`<br>`password`: upload/download password<br>`filename`: file name<br>`key`: access code | `application/json`<br>`{ fileToken, keyToken, filename? }` |

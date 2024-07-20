@@ -35,6 +35,7 @@ bucket_name = &quot;YOUR_BUCKET_NAME&quot;
 <li><code>WEATHER_API_KEY</code>: 和风天气的 <code>API</code> 密钥, 用于 <code>MyHomepage</code></li>
 <li><code>FILEBOX_UPLOAD_PW</code>: 文件快递柜上传密码, 用于 <code>FileBox</code></li>
 <li><code>FILEBOX_DOWNLOAD_PW</code>: 文件快递柜下载密码, 用于 <code>FileBox</code></li>
+<li><code>FILE0_SECRET_KEY</code>: <code>File0</code> 的 <code>API</code> 密钥, 用于 <code>FileBox</code></li>
 </ul>
 <blockquote>
 <p>如果您不需要使用某个功能, 可以不设置对应的环墇变量</p>
@@ -148,8 +149,8 @@ bun dep
 <td align="center"><code>/filebox/upload/ws</code></td>
 <td align="center"><code>Get-&gt;WebSocket</code></td>
 <td align="center">-</td>
-<td align="center"><code>key: string</code>: 文件取件码<br><code>password: string</code>: 上传密码</td>
-<td align="center"><code>application/json</code></td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
 <tr>
 <td align="center"><code>FileBox</code></td>
@@ -157,8 +158,17 @@ bun dep
 <td align="center"><code>/filebox/download/ws</code></td>
 <td align="center"><code>Get-&gt;WebSocket</code></td>
 <td align="center">-</td>
-<td align="center"><code>key: string</code>: 文件取件码<br><code>password: string</code>: 下载密码<br><code>delete: boolean</code>: 是否下载后删除</td>
-<td align="center"><code>application/json</code></td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center"><code>FileBox</code></td>
+<td align="center">获取 <code>File0</code> <code>Token</code></td>
+<td align="center"><code>/filebox/file0</code></td>
+<td align="center"><code>POST</code></td>
+<td align="center">-</td>
+<td align="center"><code>type: &#39;upload&#39; | &#39;download&#39;</code><br><code>password</code>: 上传/下载密码<br><code>filename</code>: 文件名<br><code>key</code>: 取件码</td>
+<td align="center"><code>application/json</code><br><code>{ fileToken, keyToken, filename? }</code></td>
 </tr>
 </tbody></table>
 

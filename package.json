@@ -13,6 +13,7 @@
     "wrangler": "^3.55.0"
   },
   "dependencies": {
+    "file0": "^2.0.3",
     "hono": "^4.3.4",
     "marked": "^12.0.2"
   }

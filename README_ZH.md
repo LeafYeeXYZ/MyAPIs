@@ -34,6 +34,7 @@ bucket_name = "YOUR_BUCKET_NAME"
 - `WEATHER_API_KEY`: 和风天气的 `API` 密钥, 用于 `MyHomepage`
 - `FILEBOX_UPLOAD_PW`: 文件快递柜上传密码, 用于 `FileBox`
 - `FILEBOX_DOWNLOAD_PW`: 文件快递柜下载密码, 用于 `FileBox`
+- `FILE0_SECRET_KEY`: `File0` 的 `API` 密钥, 用于 `FileBox`
 
 > 如果您不需要使用某个功能, 可以不设置对应的环墇变量
 
@@ -62,4 +63,5 @@ bun dep
 | `Others` | 显示 `README` | `/` | `GET` | - | - | `text/html` |
 | `FileBox` | 上传文件 | `/filebox/upload/ws` | `Get->WebSocket` | - | - | - |
 | `FileBox` | 下载文件 | `/filebox/download/ws` | `Get->WebSocket` | - | - | - |
+| `FileBox` | 获取 `File0` `Token` | `/filebox/file0` | `POST` | - | `type: 'upload' \| 'download'`<br>`password`: 上传/下载密码<br>`filename`: 文件名<br>`key`: 取件码 | `application/json`<br>`{ fileToken, keyToken, filename? }` |
 
