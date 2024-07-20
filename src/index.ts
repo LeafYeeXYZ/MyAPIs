@@ -118,9 +118,6 @@ app.get('/filebox/download/ws', upgradeWebSocket((c) => {
 // CORS
 app.use('*', cors())
 
-// 文件快递柜：File0
-import { filebox_file0 } from './routes/filebox_file0'
-app.post('/filebox/file0', filebox_file0)
 // 赛博画师小叶子: 获取模型列表
 import { painter_models } from './routes/painter_models'
 app.get('/painter/models', painter_models)
