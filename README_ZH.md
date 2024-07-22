@@ -1,7 +1,7 @@
 **中文 | [English](README.md)**
 
 # 介绍
-我的自用 `API` 仓库
+我的自用 `Cloudflare Workers` `API` 仓库
 
 ## 使用方法
 ### 配置环境变量
@@ -63,5 +63,4 @@ bun dep
 | `Others` | 显示 `README` | `/` | `GET` | - | - | `text/html` |
 | `FileBox` | 上传文件 | `/filebox/upload/ws` | `Get->WebSocket` | - | - | - |
 | `FileBox` | 下载文件 | `/filebox/download/ws` | `Get->WebSocket` | - | - | - |
-| `FileBox` | 获取 `File0` `Token` | `/filebox/file0` | `POST` | - | `type: 'upload' \| 'download'`<br>`password`: 上传/下载密码<br>`filename`: 文件名<br>`key`: 取件码 | `application/json`<br>`{ fileToken, keyToken, filename? }` |
 

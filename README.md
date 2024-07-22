@@ -1,7 +1,7 @@
 **[中文](README_ZH.md) | English**
 
 # Introduction
-My personal `API` repository
+My personal `Cloudflare Workers` `API` repository
 
 ## Usage
 ### Configure Environment Variables
@@ -63,4 +63,3 @@ bun dep
 | `Others` | Show README | `/` | `GET` | - | - | `text/html` |
 | `FileBox` | Upload file | `/filebox/upload/ws` | `Get->WebSocket` | - | - | - |
 | `FileBox` | Download file | `/filebox/download/ws` | `Get->WebSocket` | - | - | - |
-| `FileBox` | Get `File0` `Token` | `/filebox/file0` | `POST` | - | `type: 'upload' \| 'download'`<br>`password`: upload/download password<br>`filename`: file name<br>`key`: access code | `application/json`<br>`{ fileToken, keyToken, filename? }` |
