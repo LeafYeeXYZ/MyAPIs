@@ -34,7 +34,6 @@ bucket_name = "YOUR_BUCKET_NAME"
 - `WEATHER_API_KEY`: [`qWeather`](https://dev.qweather.com/docs/api) `API` key, for `MyHomepage`
 - `FILEBOX_UPLOAD_PW`: FileBox upload password, for `FileBox`
 - `FILEBOX_DOWNLOAD_PW`: FileBox download password, for `FileBox`
-- `FILE0_SECRET_KEY`: `File0` secret key, for `FileBox`
 
 > If you don't need to use a certain feature, it's okay not to set the corresponding environment variable.
 
@@ -55,7 +54,7 @@ bun dep
 | `PainterLeaf` | Get model list | `/painter/models` | `GET` | - | - | `application/json` |
 | `PainterLeaf` | Generate image | `/painter/generate` | `POST` | - | `prompt`: prompt words<br>`model`: model name<br>If img2img: `image: Array.from(uint8Array)` | `image/png` |
 | `PainterLeaf` | Translate prompt words | `/painter/translate` | `POST` | - | `text`: text<br>`source_lang`: source language<br>`target_lang`: target language | `application/json` |
-| `MyHomepage` | qWeather (Beijing) | `/weather` | `GET` | `location`: `longitude,latitude` | - | `application/json` |
+| `MyHomepage` | qWeather | `/weather` | `GET` | `location`: `longitude,latitude` | - | `application/json` |
 | `CounselorLeaf` | Chat | `/counselor/chat` | `POST` | - | `messages`: message list, excluding system messages | `application/json` |
 | `PainterLeaf` | Generate text from image | `/painter/genprompt` | `POST` | - | `image: Array.from(uint8Array)` | `application/json` |
 | `Others` | Count visits | `/count` | `GET` | - | - | `text/javascript` |

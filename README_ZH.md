@@ -34,7 +34,6 @@ bucket_name = "YOUR_BUCKET_NAME"
 - `WEATHER_API_KEY`: 和风天气的 `API` 密钥, 用于 `MyHomepage`
 - `FILEBOX_UPLOAD_PW`: 文件快递柜上传密码, 用于 `FileBox`
 - `FILEBOX_DOWNLOAD_PW`: 文件快递柜下载密码, 用于 `FileBox`
-- `FILE0_SECRET_KEY`: `File0` 的 `API` 密钥, 用于 `FileBox`
 
 > 如果您不需要使用某个功能, 可以不设置对应的环墇变量
 
@@ -55,7 +54,7 @@ bun dep
 | `PainterLeaf` | 获取模型列表 | `/painter/models` | `GET` | - | - | `application/json` |
 | `PainterLeaf` | 生成图片 | `/painter/generate` | `POST` | - | `prompt`: 提示词<br>`model`: 模型名称<br>如果图生图: `image: Array.from(uint8Array)` | `image/png` |
 | `PainterLeaf` | 提示词翻译 | `/painter/translate` | `POST` | - | `text`: 文本<br>`source_lang`: 源语言<br>`target_lang`: 目标语言 | `application/json` |
-| `MyHomepage` | 和风天气 (北京) | `/weather` | `GET` | `location`: `经度,纬度` | - | `application/json` |
+| `MyHomepage` | 和风天气 | `/weather` | `GET` | `location`: `经度,纬度` | - | `application/json` |
 | `CounselorLeaf` | 聊天 | `/counselor/chat` | `POST` | - | `messages`: 消息列表, 不含系统消息 | `application/json` |
 | `PainterLeaf` | 图片生成文字 | `/painter/genprompt` | `POST` | - | `image: Array.from(uint8Array)` | `application/json` |
 | `Others` | 访问量统计 | `/count` | `GET` | - | - | `text/javascript` |
