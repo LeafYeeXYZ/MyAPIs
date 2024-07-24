@@ -5,7 +5,7 @@ import type { Context } from 'hono'
 const html: string = `
 <p><strong>中文 | <a href="README.md">English</a></strong></p>
 <h1>介绍</h1>
-<p>我的自用 <code>API</code> 仓库</p>
+<p>我的自用 <code>Cloudflare Workers</code> <code>API</code> 仓库</p>
 <h2>使用方法</h2>
 <h3>配置环境变量</h3>
 <p>请 <code>Fork</code> 本仓库后, 手动创建 <code>wrangler.toml</code> 文件, 并添加以下内容:</p>
@@ -35,7 +35,6 @@ bucket_name = &quot;YOUR_BUCKET_NAME&quot;
 <li><code>WEATHER_API_KEY</code>: 和风天气的 <code>API</code> 密钥, 用于 <code>MyHomepage</code></li>
 <li><code>FILEBOX_UPLOAD_PW</code>: 文件快递柜上传密码, 用于 <code>FileBox</code></li>
 <li><code>FILEBOX_DOWNLOAD_PW</code>: 文件快递柜下载密码, 用于 <code>FileBox</code></li>
-<li><code>FILE0_SECRET_KEY</code>: <code>File0</code> 的 <code>API</code> 密钥, 用于 <code>FileBox</code></li>
 </ul>
 <blockquote>
 <p>如果您不需要使用某个功能, 可以不设置对应的环墇变量</p>
@@ -91,7 +90,7 @@ bun dep
 </tr>
 <tr>
 <td align="center"><code>MyHomepage</code></td>
-<td align="center">和风天气 (北京)</td>
+<td align="center">和风天气</td>
 <td align="center"><code>/weather</code></td>
 <td align="center"><code>GET</code></td>
 <td align="center"><code>location</code>: <code>经度,纬度</code></td>
@@ -146,29 +145,20 @@ bun dep
 <tr>
 <td align="center"><code>FileBox</code></td>
 <td align="center">上传文件</td>
-<td align="center"><code>/filebox/upload/ws</code></td>
-<td align="center"><code>Get-&gt;WebSocket</code></td>
+<td align="center"><code>/filebox/upload</code></td>
+<td align="center"><code>POST</code></td>
 <td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
+<td align="center"><code>key</code>: 取件码<br><code>filename</code>: 文件名<br><code>password</code>: 上传密码<br><code>file</code>: base64 编码的文件</td>
+<td align="center"><code>application/json</code></td>
 </tr>
 <tr>
 <td align="center"><code>FileBox</code></td>
 <td align="center">下载文件</td>
-<td align="center"><code>/filebox/download/ws</code></td>
-<td align="center"><code>Get-&gt;WebSocket</code></td>
+<td align="center"><code>/filebox/download</code></td>
+<td align="center"><code>GET</code></td>
+<td align="center"><code>key</code>: 取件码<br><code>password</code>: 下载密码<br><code>shouldDelete</code>: 是否删除文件</td>
 <td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-</tr>
-<tr>
-<td align="center"><code>FileBox</code></td>
-<td align="center">获取 <code>File0</code> <code>Token</code></td>
-<td align="center"><code>/filebox/file0</code></td>
-<td align="center"><code>POST</code></td>
-<td align="center">-</td>
-<td align="center"><code>type: &#39;upload&#39; | &#39;download&#39;</code><br><code>password</code>: 上传/下载密码<br><code>filename</code>: 文件名<br><code>key</code>: 取件码</td>
-<td align="center"><code>application/json</code><br><code>{ fileToken, keyToken, filename? }</code></td>
+<td align="center"><code>application/json</code></td>
 </tr>
 </tbody></table>
 
