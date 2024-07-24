@@ -8,7 +8,11 @@ export async function filebox_upload(c: Context): Promise<Response> {
     if (password !== c.env.FILEBOX_UPLOAD_PW) {
       return c.text('上传密码错误', 403)
     }
-    await r2.put(key, JSON.stringify({ file, filename }))
+    await r2.put(key, JSON.stringify({ 
+      filename,
+      filesize: file.length,
+    }))
+    await r2.put(`${key}.file`, file)
   } catch (e) {
     if (e instanceof Error) {
       return c.text(`下载失败: ${e.message}`, 500)
