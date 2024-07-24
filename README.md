@@ -61,4 +61,4 @@ bun dep
 | `Others` | Count visits | `/count` | `POST` | - | `hostname`: domain name<br>`unique`: whether to count as unique visitors | `application/json` |
 | `Others` | Show README | `/` | `GET` | - | - | `text/html` |
 | `FileBox` | Upload file | `/filebox/upload` | `POST` | - | `key`: pickup code<br>`filename`: file name<br>`password`: upload password<br>`file`: base64 encoded file | `application/json` |
-| `FileBox` | Download file | `/filebox/download` | `POST` | `key`: pickup code<br>`password`: download password<br>`shouldDelete`: whether to delete the file | - | `application/json` |
+| `FileBox` | Download file | `/filebox/download` | `POST` | - | `key`: pickup code<br>`password`: download password<br>`shouldDelete`: whether to delete the file | `application/json` |

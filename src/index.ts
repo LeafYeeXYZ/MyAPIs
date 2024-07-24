@@ -33,7 +33,7 @@ import { filebox_upload } from './routes/filebox_upload'
 app.post('/filebox/upload', filebox_upload)
 // FileBox: 下载
 import { filebox_download } from './routes/filebox_download'
-app.get('/filebox/download', filebox_download)
+app.post('/filebox/download', filebox_download)
 
 // 主页
 import { index } from './components/Page'
