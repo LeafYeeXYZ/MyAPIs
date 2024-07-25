@@ -23,7 +23,7 @@ export async function filebox_download(c: Context): Promise<Response> {
         await r2.delete(key)
         await r2.delete(`${key}.file`)
       }
-      return c.text(await data.text())
+      return new Response(await data.arrayBuffer())
     }
     return c.text('请求参数错误', 400)
 
