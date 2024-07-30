@@ -157,7 +157,7 @@ bun dep
 <td align="center"><code>/filebox/download</code></td>
 <td align="center"><code>POST</code></td>
 <td align="center">-</td>
-<td align="center"><code>key</code>: 取件码<br><code>password</code>: 下载密码<br><code>shouldDelete</code>: 是否删除文件</td>
+<td align="center"><code>key</code>: 取件码<br><code>password</code>: 下载密码<br><code>shouldDelete</code>: 是否删除文件<br><code>filetype</code>: <code>file</code> 或 <code>text</code></td>
 <td align="center"><code>application/json</code></td>
 </tr>
 </tbody></table>

@@ -4,7 +4,7 @@ import { R2Bucket } from '@cloudflare/workers-types'
 export async function filebox_download(c: Context): Promise<Response> {
   const r2 = c.env.filebox as R2Bucket
   try {
-    const { key, password, shouldDelete, type } = await c.req.json()
+    const { key, password, shouldDelete, type, filetype } = await c.req.json()
     if (password !== c.env.FILEBOX_DOWNLOAD_PW) {
       return c.text('下载密码错误', 403)
     }
@@ -23,7 +23,7 @@ export async function filebox_download(c: Context): Promise<Response> {
         await r2.delete(key)
         await r2.delete(`${key}.file`)
       }
-      return new Response(await data.arrayBuffer())
+      return new Response(filetype === 'text' ? await data.text() : await data.arrayBuffer())
     }
     return c.text('请求参数错误', 400)
 
