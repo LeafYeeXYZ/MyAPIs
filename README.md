@@ -17,9 +17,10 @@ KEY = "VALUE"
 # See Environment Variables
 
 # Only used for counting visits, can be omitted
-[[kv_namespaces]]
+[[d1_databases]]
 binding = "count"
-id = "YOUR_KV_NAMESPACE_ID"
+database_name = "YOUR_D1_DATABASE_NAME"
+database_id = "YOUR_D1_DATABASE_ID"
 
 # Only used for FileBox, can be omitted
 [[r2_buckets]]
