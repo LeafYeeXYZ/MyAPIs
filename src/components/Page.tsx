@@ -18,9 +18,10 @@ KEY = &quot;VALUE&quot;
 # 见环境变量
 
 # 仅用于统计访问量, 可不设置
-[[kv_namespaces]]
+[[d1_databases]]
 binding = &quot;count&quot;
-id = &quot;YOUR_KV_NAMESPACE_ID&quot;
+database_name = &quot;YOUR_D1_DATABASE_NAME&quot;
+database_id = &quot;YOUR_D1_DATABASE_ID&quot;
 
 # 仅用于文件快递柜, 可不设置
 [[r2_buckets]]

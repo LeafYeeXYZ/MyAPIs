@@ -35,30 +35,16 @@ export async function count_get(c: Context): Promise<Response> {
 
 export async function count_post(c: Context): Promise<Response> {
   const { hostname, unique } = await c.req.json()
-  const d1: D1Database = c.env.count
+  const d1: D1Database = c.env.count // SQLite数据库
   // 如果不存在则创建表
-  await d1.exec(`
-    CREATE TABLE IF NOT EXISTS count (
-      hostname TEXT PRIMARY KEY,
-      sitePV INT,
-      siteUV INT
-    )
-  `)
+  await d1.exec(`create table if not exists count (hostname text primary key, sitePV int, siteUV int)`)
   // 如果不存在则插入数据
-  await d1.exec(`
-    INSERT OR IGNORE INTO count (hostname, sitePV, siteUV) VALUES ('${hostname}', 0, 0)
-  `)
+  await d1.exec(`insert or ignore into count (hostname, sitePV, siteUV) values ('${hostname}', 0, 0)`)
   // 更新数据
-  await d1.exec(`
-    UPDATE count SET sitePV = sitePV + 1 WHERE hostname = '${hostname}'
-  `)
-  unique && await d1.exec(`
-    UPDATE count SET siteUV = siteUV + 1 WHERE hostname = '${hostname}'
-  `)
+  await d1.exec(`update count set sitePV = sitePV + 1 where hostname = '${hostname}'`)
+  unique && await d1.exec(`update count set siteUV = siteUV + 1 where hostname = '${hostname}'`)
   // 查询数据
-  const { sitePV, siteUV } = await d1.prepare(`
-    SELECT sitePV, siteUV FROM count WHERE hostname = '${hostname}'
-  `).first() as { sitePV: number, siteUV: number }
+  const { sitePV, siteUV } = await d1.prepare(`select sitePV, siteUV from count where hostname = '${hostname}'`).first() as { sitePV: number, siteUV: number }
   // 返回数据
   return c.json({
     sitePV: sitePV + (hostname === 'blog.leafyee.xyz' ? 10962 : 0),
