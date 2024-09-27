@@ -1,6 +1,24 @@
 import type { Context } from 'hono'
+import type { ConsoleMessage } from '../console'
 
 export async function painter_genprompt(c: Context): Promise<Response> {
+
+  const SUCCESS_MESSAGE: ConsoleMessage = {
+    type: 'log',
+    route: 'painter/genprompt',
+    message: 'Painter Genprompt Requested Successfully',
+    time: new Date().toUTCString(),
+    data: {}
+  }
+
+  const ERROR_MESSAGE: ConsoleMessage = {
+    type: 'error',
+    route: 'painter/genprompt',
+    message: 'Painter Genprompt Requested Failed',
+    time: new Date().toUTCString(),
+    data: {}
+  }
+
   try {
     // 请求参数
     const url = `https://api.cloudflare.com/client/v4/accounts/${c.env.CF_USER}/ai/run/@cf/unum/uform-gen2-qwen-500m`
@@ -21,6 +39,7 @@ export async function painter_genprompt(c: Context): Promise<Response> {
     })
     const result = await response.json()
     // 返回结果
+    console.log(SUCCESS_MESSAGE)
     return new Response(JSON.stringify(result), {
       status: result.success ? 200 : 500,
       headers: {
@@ -28,6 +47,9 @@ export async function painter_genprompt(c: Context): Promise<Response> {
       }
     })
   } catch(e) {
-    return new Response(e instanceof Error ? e.message : 'Unkown Server Error', { status: 500 })
+    const message = e instanceof Error ? e.message : 'Unkown Server Error'
+    ERROR_MESSAGE.data!.error = message
+    console.error(ERROR_MESSAGE)
+    return new Response(message, { status: 500 })
   }
 }

@@ -26,6 +26,9 @@ database_id = "YOUR_D1_DATABASE_ID"
 [[r2_buckets]]
 binding = "filebox"
 bucket_name = "YOUR_BUCKET_NAME"
+
+[observability]
+enabled = true
 ```
 
 ### Environment Variables

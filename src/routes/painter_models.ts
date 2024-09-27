@@ -1,4 +1,5 @@
 import type { Context } from 'hono'
+import type { ConsoleMessage } from '../console'
 
 type Models = {
   [key: string]: { 
@@ -20,6 +21,15 @@ const MODELS: Models = {
 }
 
 export function painter_models(c: Context): Response {
+
+  console.log({
+    type: 'log',
+    route: 'painter/models',
+    message: 'Painter Models Requested Successfully',
+    time: new Date().toUTCString(),
+    data: {}
+  } as ConsoleMessage)
+
   return new Response(JSON.stringify(MODELS), {
     headers: {
       'content-type': 'application/json',

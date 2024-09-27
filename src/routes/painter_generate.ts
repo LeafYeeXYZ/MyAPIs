@@ -1,4 +1,5 @@
 import type { Context } from 'hono'
+import type { ConsoleMessage } from '../console'
 
 /** 生成请求地址和请求选项 */
 class PainterRequest {
@@ -55,6 +56,23 @@ class PainterRequest {
 }
 
 export async function painter_generate(c: Context): Promise<Response> {
+
+  const SUCCESS_MESSAGE: ConsoleMessage = {
+    type: 'log',
+    route: 'painter/generate',
+    message: 'AI Generate Requested Successfully',
+    time: new Date().toUTCString(),
+    data: {}
+  }
+
+  const ERROR_MESSAGE: ConsoleMessage = {
+    type: 'error',
+    route: 'painter/generate',
+    message: 'AI Generate Requested Failed',
+    time: new Date().toUTCString(),
+    data: {}
+  }
+
   try {
     // 图片
     const data = await c.req.json()
@@ -66,6 +84,7 @@ export async function painter_generate(c: Context): Promise<Response> {
     // 发送请求
     const response = await fetch(url, options)
     // 返回结果
+    console.log(SUCCESS_MESSAGE)
     return new Response(response.body, {
       status: response.status,
       headers: {
@@ -73,6 +92,9 @@ export async function painter_generate(c: Context): Promise<Response> {
       }
     })
   } catch (e) {
-    return new Response(e instanceof Error ? e.message : 'Unkown Server Error', { status: 500 })
+    const message = e instanceof Error ? e.message : 'Unkown Server Error'
+    ERROR_MESSAGE.data!.error = message
+    console.error(ERROR_MESSAGE)
+    return new Response(message, { status: 500 })
   }
 }

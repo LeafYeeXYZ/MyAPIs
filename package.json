@@ -8,12 +8,12 @@
     "setup": "bun ./src/components/PageSetup.ts"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240815.0",
-    "typescript": "^5.5.4",
-    "wrangler": "^3.72.0"
+    "@cloudflare/workers-types": "^4.20240925.0",
+    "typescript": "^5.6.2",
+    "wrangler": "^3.78.10"
   },
   "dependencies": {
-    "hono": "^4.5.6",
+    "hono": "^4.6.3",
     "marked": "^12.0.2"
   }
 }
