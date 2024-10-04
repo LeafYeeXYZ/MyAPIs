@@ -27,6 +27,9 @@ database_id = &quot;YOUR_D1_DATABASE_ID&quot;
 [[r2_buckets]]
 binding = &quot;filebox&quot;
 bucket_name = &quot;YOUR_BUCKET_NAME&quot;
+
+[observability]
+enabled = true
 </code></pre>
 <h3>环境变量</h3>
 <ul>
