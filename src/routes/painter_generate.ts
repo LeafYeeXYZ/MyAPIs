@@ -29,7 +29,18 @@ class PainterRequest {
           'content-type': 'application/json',
           'Authorization': `Bearer ${env.CF_AI_API_KEY}`
         },
-        body: JSON.stringify(image ? { image: image, prompt: prompt } : { prompt: prompt })
+        body: JSON.stringify({ 
+          image: image,
+          prompt: prompt,
+          negative_prompt: 'lowres, bad, text, error, missing, extra, fewer, cropped, jpeg artifacts, worst quality, bad quality, watermark, bad aesthetic, unfinished, chromatic aberration, scan, scan artifacts',
+        })
+      }
+      // 针对 Cloudflare 的 FLUX.1 Schnell 模型的特殊处理
+      if (model === '@cf/black-forest-labs/flux-1-schnell') {
+        this.options.body = JSON.stringify({
+          num_steps: 8,
+          ...JSON.parse(this.options.body)
+        })
       }
     } else if (this.#hfReg.test(model)) {
       // Hugging Face
@@ -85,6 +96,19 @@ export async function painter_generate(c: Context): Promise<Response> {
     const response = await fetch(url, options)
     // 返回结果
     console.log(SUCCESS_MESSAGE)
+    // 针对 Cloudflare 的 FLUX.1 Schnell 模型的特殊处理
+    if (model === '@cf/black-forest-labs/flux-1-schnell') {
+      const res = await response.json()
+      const base64 = res.result.image as string
+      const buffer = new Uint8Array(atob(base64).split('').map(c => c.charCodeAt(0)))
+      return new Response(buffer, {
+        status: response.status,
+        headers: {
+          'content-type': 'image/png',
+        }
+      })
+    }
+    // 返回结果
     return new Response(response.body, {
       status: response.status,
       headers: {

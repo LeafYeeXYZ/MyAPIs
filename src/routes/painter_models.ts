@@ -10,6 +10,7 @@ type Models = {
 }
 
 const MODELS: Models = {
+  // 由于这个模型和 Cloudflare 的其他模型返回值不同, 故在 painter_generate.ts 中进行了两处特殊处理
   '@cf/black-forest-labs/flux-1-schnell': { description: '☁️ FLUX.1 Schnell', type: 'textToImage', lang: 'natural' },
   '@cf/stabilityai/stable-diffusion-xl-base-1.0': { description: '☁️ SDXL Base 1.0', type: 'textToImage', lang: 'natural' },
   '@cf/bytedance/stable-diffusion-xl-lightning': { description: '☁️ SDXL Lightning', type: 'textToImage', lang: 'natural' },
