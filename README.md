@@ -11,6 +11,7 @@ Please `Fork` this repository, manually create the `wrangler.toml` file, and add
 name = "api"
 main = "dist/index.js"
 compatibility_date = "2024-04-05"
+assets = { directory = "public" }
 
 [vars]
 KEY = "VALUE"
@@ -66,3 +67,4 @@ bun dep
 | `Others` | Show README | `/` | `GET` | - | - | `text/html` |
 | `FileBox` | Upload file | `/filebox/upload` | `POST` | - | `key`: pickup code<br>`filename`: file name<br>`password`: upload password<br>`file`: base64 encoded file | `application/json` |
 | `FileBox` | Download file | `/filebox/download` | `POST` | - | `key`: pickup code<br>`password`: download password<br>`shouldDelete`: whether to delete the file<br>`filetype`: `file` or `text` | `application/json` |
+| `Others` | Return my avatar | `/avatar.jpg` | `GET` | - | - | `image/jpeg` |

@@ -11,6 +11,7 @@
 name = "api"
 main = "dist/index.js"
 compatibility_date = "2024-04-05"
+assets = { directory = "public" }
 
 [vars]
 KEY = "VALUE"
@@ -66,4 +67,5 @@ bun dep
 | `Others` | 显示 `README` | `/` | `GET` | - | - | `text/html` |
 | `FileBox` | 上传文件 | `/filebox/upload` | `POST` | - | `key`: 取件码<br>`filename`: 文件名<br>`password`: 上传密码<br>`file`: base64 编码的文件 | `application/json` |
 | `FileBox` | 下载文件 | `/filebox/download` | `POST` | - | `key`: 取件码<br>`password`: 下载密码<br>`shouldDelete`: 是否删除文件<br>`filetype`: `file` 或 `text` | `application/json` |
+| `Others` | 返回我的头像 | `/avatar.jpg` | `GET` | - | - | `image/jpeg` |
 
