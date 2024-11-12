@@ -12,6 +12,7 @@ const html: string = `
 <pre><code class="language-toml">name = &quot;api&quot;
 main = &quot;dist/index.js&quot;
 compatibility_date = &quot;2024-04-05&quot;
+assets = { directory = &quot;public&quot; }
 
 [vars]
 KEY = &quot;VALUE&quot;
@@ -163,6 +164,15 @@ bun dep
 <td align="center">-</td>
 <td align="center"><code>key</code>: 取件码<br><code>password</code>: 下载密码<br><code>shouldDelete</code>: 是否删除文件<br><code>filetype</code>: <code>file</code> 或 <code>text</code></td>
 <td align="center"><code>application/json</code></td>
+</tr>
+<tr>
+<td align="center"><code>Others</code></td>
+<td align="center">返回我的头像</td>
+<td align="center"><code>/avatar.jpg</code></td>
+<td align="center"><code>GET</code></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><code>image/jpeg</code></td>
 </tr>
 </tbody></table>
 
