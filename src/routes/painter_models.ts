@@ -17,8 +17,6 @@ const MODELS: Models = {
   '@hf/black-forest-labs/FLUX.1-schnell': { description: '🤗 FLUX.1 Schnell', type: 'textToImage', lang: 'natural' },
   '@hf/black-forest-labs/FLUX.1-dev': { description: '🤗 FLUX.1 Dev', type: 'textToImage', lang: 'natural' },
   '@hf/stabilityai/stable-diffusion-3.5-large': { description: '🤗 SD 3.5 Large', type: 'textToImage', lang: 'natural' },
-  '@hf/cagliostrolab/animagine-xl-3.1': { description: '🤗 AnimagineXL 3.1', type: 'textToImage', lang: 'sdPrompt' },
-  '@hf/UnfilteredAI/NSFW-GEN-ANIME-v2': { description: '🤗 NSFWGenAnime', type: 'textToImage', lang: 'sdPrompt' },
   '@cf/runwayml/stable-diffusion-v1-5-img2img': { description: '☁️ StableDiffusion 1.5 Img2Img', type: 'imageToImage', lang: 'sdPrompt' },
 }
 

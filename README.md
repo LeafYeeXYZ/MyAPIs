@@ -64,7 +64,6 @@ bun dep
 | `PainterLeaf` | Generate text from image | `/painter/genprompt` | `POST` | - | `image: Array.from(uint8Array)` | `application/json` |
 | `Others` | Count visits | `/count` | `GET` | - | - | `text/javascript` |
 | `Others` | Count visits | `/count` | `POST` | - | `hostname`: domain name<br>`unique`: whether to count as unique visitors | `application/json` |
-| `Others` | Show README | `/` | `GET` | - | - | `text/html` |
 | `FileBox` | Upload file | `/filebox/upload` | `POST` | - | `key`: pickup code<br>`filename`: file name<br>`password`: upload password<br>`file`: base64 encoded file | `application/json` |
 | `FileBox` | Download file | `/filebox/download` | `POST` | - | `key`: pickup code<br>`password`: download password<br>`shouldDelete`: whether to delete the file<br>`filetype`: `file` or `text` | `application/json` |
 | `Others` | Return my avatar | `/avatar.jpg` | `GET` | - | - | `image/jpeg` |

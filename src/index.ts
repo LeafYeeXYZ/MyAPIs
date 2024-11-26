@@ -35,10 +35,6 @@ app.post('/filebox/upload', filebox_upload)
 import { filebox_download } from './routes/filebox_download'
 app.post('/filebox/download', filebox_download)
 
-// 主页
-import { index } from './components/Page'
-app.get('/', index)
-
 // 404
 app.all('*', () => new Response('请求路径错误 / Not Found', { status: 404 }))
 
