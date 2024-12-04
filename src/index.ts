@@ -24,6 +24,8 @@ app.post('/counselor/chat', counselor_chat)
 // 赛博画师小叶子: 图片生成提示词
 import { painter_genprompt } from './routes/painter_genprompt'
 app.post('/painter/genprompt', painter_genprompt)
+import { painter_genprompt_v4 } from './routes/painter_genprompt_v4'
+app.post('/painter/genprompt/v4', painter_genprompt_v4)
 // 访问量统计
 import { count_get, count_post } from './routes/count'
 app.get('/count', count_get)
