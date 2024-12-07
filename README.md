@@ -1,10 +1,11 @@
-**[中文](README_ZH.md) | English**
-
 # Introduction
+
 My personal `Cloudflare Workers` `API` repository
 
 ## Usage
+
 ### Configure Environment Variables
+
 Please `Fork` this repository, manually create the `wrangler.toml` file, and add the following content:
 
 ```toml
@@ -28,11 +29,12 @@ database_id = "YOUR_D1_DATABASE_ID"
 binding = "filebox"
 bucket_name = "YOUR_BUCKET_NAME"
 
-[observability]
-enabled = true
+[observability] # Optional
+enabled = true # Optional
 ```
 
 ### Environment Variables
+
 - `CF_USER`: `Cloudflare` user `ID`, for `PainterLeaf` and `CounselorLeaf`
 - `CF_AI_API_KEY`: `Cloudflare AI` `API` key, for `PainterLeaf` and `CounselorLeaf`
 - `HF_API_KEY`: `Hugging Face` `API` key, for `PainterLeaf`
@@ -43,9 +45,10 @@ enabled = true
 > If you don't need to use a certain feature, it's okay not to set the corresponding environment variable.
 
 ### Deployment
+
 ```bash
 # Install dependencies
-npm i -g bun
+npm i -g bun # if you haven't installed bun yet
 bun i
 # Login to Cloudflare
 bunx wrangler login
@@ -62,6 +65,7 @@ bun dep
 | `MyHomepage` | qWeather | `/weather` | `GET` | `location`: `longitude,latitude` | - | `application/json` |
 | `CounselorLeaf` | Chat | `/counselor/chat` | `POST` | - | `messages`: message list, excluding system messages | `application/json` |
 | `PainterLeaf` | Generate text from image | `/painter/genprompt` | `POST` | - | `image: Array.from(uint8Array)` | `application/json` |
+| `PainterLeaf` | Generate text from image<br />with `llama3.2 vision` | `/painter/genprompt/v4` | `POST` | - | `image: Array.from(uint8Array)` | `application/json` |
 | `Others` | Count visits | `/count` | `GET` | - | - | `text/javascript` |
 | `Others` | Count visits | `/count` | `POST` | - | `hostname`: domain name<br>`unique`: whether to count as unique visitors | `application/json` |
 | `FileBox` | Upload file | `/filebox/upload` | `POST` | - | `key`: pickup code<br>`filename`: file name<br>`password`: upload password<br>`file`: base64 encoded file | `application/json` |
