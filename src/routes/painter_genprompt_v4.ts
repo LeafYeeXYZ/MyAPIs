@@ -26,7 +26,7 @@ export async function painter_genprompt_v4(c: Context): Promise<Response> {
     const body = {
       image: req.image,
       max_tokens: 4096,
-      prompt: 'Analyze the given image and provide a detailed description. Include details about the main subject/people, background, colors, composition, and mood. Ensure the description is vivid and suitable for input into a text-to-image generation model.',
+      prompt: 'Analyze the given image and provide a detailed description. Include details about the main subject/people/characters, background, colors, composition, and mood. Ensure the description is vivid and suitable for input into a text-to-image generation model (which means it should be in one paragraph and not contain any bullet points or lists).',
     }
     // 发送请求
     const response = await fetch(url, {
