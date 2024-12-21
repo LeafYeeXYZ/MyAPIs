@@ -72,3 +72,4 @@ bun dep
 | `Others` | Return my avatar | `/avatar.jpg` | `GET` | - | - | `image/jpeg` |
 | `Others` | Return public avatar | `/public_avatar.png` | `GET` | - | - | `image/png` |
 | `CyberLeaf` | Chat | `/being/chat` | `POST` | - | `messages: { role: string, content: string }[]` | `application/json` |
+| `CyberLeaf` | Test Connection | `/being/test` | `POST` | - | `msg: 'ping'` | `msg: 'pong'` |

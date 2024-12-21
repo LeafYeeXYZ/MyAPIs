@@ -36,6 +36,9 @@ app.post('/filebox/download', filebox_download)
 // 赛博小叶子: 聊天
 import { being_chat } from './routes/being_chat'
 app.post('/being/chat', being_chat)
+// 赛博小叶子: 测试
+import { being_test } from './routes/being_test'
+app.post('/being/test', being_test)
 
 // 404
 app.all('*', () => new Response('请求路径错误 / Not Found', { status: 404 }))
