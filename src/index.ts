@@ -18,9 +18,6 @@ app.get('/weather', weather)
 // 赛博画师小叶子: 中译英
 import { painter_translate } from './routes/painter_translate'
 app.post('/painter/translate', painter_translate)
-// 咨询师小叶子: 生成对话消息
-import { counselor_chat } from './routes/counselor_chat'
-app.post('/counselor/chat', counselor_chat)
 // 赛博画师小叶子: 图片生成提示词
 import { painter_genprompt } from './routes/painter_genprompt'
 app.post('/painter/genprompt', painter_genprompt)
@@ -36,6 +33,9 @@ app.post('/filebox/upload', filebox_upload)
 // FileBox: 下载
 import { filebox_download } from './routes/filebox_download'
 app.post('/filebox/download', filebox_download)
+// 赛博小叶子: 聊天
+import { being_chat } from './routes/being_chat'
+app.post('/being/chat', being_chat)
 
 // 404
 app.all('*', () => new Response('请求路径错误 / Not Found', { status: 404 }))

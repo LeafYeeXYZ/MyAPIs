@@ -35,8 +35,8 @@ enabled = true # Optional
 
 ### Environment Variables
 
-- `CF_USER`: `Cloudflare` user `ID`, for `PainterLeaf` and `CounselorLeaf`
-- `CF_AI_API_KEY`: `Cloudflare AI` `API` key, for `PainterLeaf` and `CounselorLeaf`
+- `CF_USER`: `Cloudflare` user `ID`, for `PainterLeaf` and `CyberLeaf`
+- `CF_AI_API_KEY`: `Cloudflare AI` `API` key, for `PainterLeaf` and `CyberLeaf`
 - `HF_API_KEY`: `Hugging Face` `API` key, for `PainterLeaf`
 - `WEATHER_API_KEY`: [`qWeather`](https://dev.qweather.com/docs/api) `API` key, for `MyHomepage`
 - `FILEBOX_UPLOAD_PW`: FileBox upload password, for `FileBox`
@@ -63,7 +63,6 @@ bun dep
 | `PainterLeaf` | Generate image | `/painter/generate` | `POST` | - | `prompt`: prompt words<br>`model`: model name<br>If img2img: `image: Array.from(uint8Array)` | `image/png` |
 | `PainterLeaf` | Translate prompt words | `/painter/translate` | `POST` | - | `text`: text<br>`source_lang`: source language<br>`target_lang`: target language | `application/json` |
 | `MyHomepage` | qWeather | `/weather` | `GET` | `location`: `longitude,latitude` | - | `application/json` |
-| `CounselorLeaf` | Chat | `/counselor/chat` | `POST` | - | `messages`: message list, excluding system messages | `application/json` |
 | `PainterLeaf` | Generate text from image | `/painter/genprompt` | `POST` | - | `image: Array.from(uint8Array)` | `application/json` |
 | `PainterLeaf` | Generate text from image<br />with `llama3.2 vision` | `/painter/genprompt/v4` | `POST` | - | `image: Array.from(uint8Array)` | `application/json` |
 | `Others` | Count visits | `/count` | `GET` | - | - | `text/javascript` |
@@ -71,3 +70,5 @@ bun dep
 | `FileBox` | Upload file | `/filebox/upload` | `POST` | - | `key`: pickup code<br>`filename`: file name<br>`password`: upload password<br>`file`: base64 encoded file | `application/json` |
 | `FileBox` | Download file | `/filebox/download` | `POST` | - | `key`: pickup code<br>`password`: download password<br>`shouldDelete`: whether to delete the file<br>`filetype`: `file` or `text` | `application/json` |
 | `Others` | Return my avatar | `/avatar.jpg` | `GET` | - | - | `image/jpeg` |
+| `Others` | Return public avatar | `/public_avatar.png` | `GET` | - | - | `image/png` |
+| `CyberLeaf` | Chat | `/being/chat` | `POST` | - | `messages: { role: string, content: string }[]` | `application/json` |
