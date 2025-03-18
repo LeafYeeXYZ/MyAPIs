@@ -88,6 +88,14 @@ export async function painter_generate(c: Context): Promise<Response> {
   try {
     // 图片
     const data = await c.req.json()
+    if (c.env.PAINTERLEAF_SERVER_PASSWORD && data.password !== c.env.PAINTERLEAF_SERVER_PASSWORD) {
+      ERROR_MESSAGE.data!.error = 'Invalid Password'
+      console.error(ERROR_MESSAGE)
+      return new Response('Unauthorized - Invalid Server Password', { 
+        status: 401,
+        statusText: 'Unauthorized - Invalid Server Password'
+      })
+    }
     const image = data.image as number[] | undefined
     const model = data.model as string
     const prompt = data.prompt as string

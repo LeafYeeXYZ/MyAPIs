@@ -23,6 +23,14 @@ export async function painter_genprompt_v4(c: Context): Promise<Response> {
     // 请求参数
     const url = `https://api.cloudflare.com/client/v4/accounts/${c.env.CF_USER}/ai/run/@cf/meta/llama-3.2-11b-vision-instruct`
     const req = await c.req.json()
+    if (c.env.PAINTERLEAF_SERVER_PASSWORD && req.password !== c.env.PAINTERLEAF_SERVER_PASSWORD) {
+      ERROR_MESSAGE.data!.error = 'Invalid Password'
+      console.error(ERROR_MESSAGE)
+      return new Response('Unauthorized - Invalid Server Password', { 
+        status: 401,
+        statusText: 'Unauthorized - Invalid Server Password'
+      })
+    }
     const body = {
       image: req.image,
       max_tokens: 4096,

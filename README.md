@@ -38,6 +38,7 @@ enabled = true # Optional
 - `CF_USER`: `Cloudflare` user `ID`, for `PainterLeaf` and `CyberLeaf`
 - `CF_AI_API_KEY`: `Cloudflare AI` `API` key, for `PainterLeaf` and `CyberLeaf`
 - `HF_API_KEY`: `Hugging Face` `API` key, for `PainterLeaf`
+- `PAINTERLEAF_SERVER_PASSWORD`: `PainterLeaf` server password, for `PainterLeaf`
 - `WEATHER_API_KEY`: [`qWeather`](https://dev.qweather.com/docs/api) `API` key, for `MyHomepage`
 - `FILEBOX_UPLOAD_PW`: FileBox upload password, for `FileBox`
 - `FILEBOX_DOWNLOAD_PW`: FileBox download password, for `FileBox`

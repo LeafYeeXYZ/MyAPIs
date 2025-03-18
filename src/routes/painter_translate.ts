@@ -23,6 +23,14 @@ export async function painter_translate(c: Context): Promise<Response> {
     // 请求参数
     const url = `https://api.cloudflare.com/client/v4/accounts/${c.env.CF_USER}/ai/run/@cf/meta/m2m100-1.2b`
     const body = await c.req.json()
+    if (c.env.PAINTERLEAF_SERVER_PASSWORD && body.password !== c.env.PAINTERLEAF_SERVER_PASSWORD) {
+      ERROR_MESSAGE.data!.error = 'Invalid Password'
+      console.error(ERROR_MESSAGE)
+      return new Response('Unauthorized - Invalid Server Password', { 
+        status: 401,
+        statusText: 'Unauthorized - Invalid Server Password'
+      })
+    }
     // 发送请求
     const response = await fetch(url, {
       method: 'POST',
