@@ -1,3 +1,5 @@
+### This repository is archived and no longer maintained. All features have been migrated to separate repositories.
+
 # Introduction
 
 My personal `Cloudflare Workers` `API` repository
